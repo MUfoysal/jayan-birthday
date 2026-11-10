@@ -1,8 +1,0 @@
-@keyframes envelope-float { 0%, 100% { transform: translateY(0) rotate(-9deg); } 50% { transform: translateY(-13px) rotate(-6deg); } }
-@keyframes twinkle { 0%, 100% { opacity: .55; transform: scale(.8) rotate(-12deg); } 50% { opacity: 1; transform: scale(1.15) rotate(12deg); } }
-@keyframes screen-arrive { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-@keyframes dialog-arrive { from { opacity: 0; transform: translateY(12px) scale(.97); } to { opacity: 1; transform: translateY(0) scale(1); } }
-@keyframes current-glow { 0%, 100% { box-shadow: 0 0 0 3px #e5a5c4, 0 10px 25px rgb(100 78 120 / 12%); } 50% { box-shadow: 0 0 0 5px rgb(229 165 196 / 38%), 0 12px 28px rgb(100 78 120 / 15%); } }
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
-}
