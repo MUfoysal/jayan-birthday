@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Happy 2nd Birthday, Zayan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600&family=Nunito:wght@400;600;700&family=Playfair+Display:wght@600;700;800&display=swap">
+<style>
+/* Candy Wonderland storybook. Playfair Display headings, Nunito English body, Hind Siliguri Bangla. */
+:root{--bg:#FFF8ED;--pink:#FFC6D9;--lav:#C9B6FF;--lemon:#FFE69A;--mint:#B9E8D0;--plum:#765A70;--mlav:#E8DFFF;--ppink:#FFF0F5;
+--ink:var(--plum);--glass:rgba(255,255,255,.74);--line:rgba(118,90,112,.2);--ease:cubic-bezier(.22,1,.36,1);
+--serif:"Playfair Display","Hind Siliguri",Georgia,serif;--sans:"Nunito","Hind Siliguri",system-ui,sans-serif;
+box-sizing:border-box;color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1.1rem/1.85 var(--sans);overflow-x:hidden}
+body.lock{overflow:hidden}
+h1,h2,h3{font-family:var(--serif);margin:0;font-weight:700;line-height:1.15}
+p{margin:0 0 1rem}
+button{font:inherit;color:inherit;cursor:pointer;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+:focus-visible{outline:3px solid var(--plum);outline-offset:4px;border-radius:12px}
+
+/* pastel aurora + tiny sparkles (JS shifts --c per scene) */
+@property --c{syntax:"<color>";inherits:false;initial-value:#C9B6FF}
+.aur{position:fixed;z-index:-1;width:65vmax;height:65vmax;border-radius:50%;opacity:.5;background:radial-gradient(circle,var(--c) 0,transparent 62%);transition:--c 2.4s}
+.a1{--c:#C9B6FF;left:-25vmax;top:-20vmax}.a2{--c:#B9E8D0;right:-30vmax;top:30vh;opacity:.4}.a3{--c:#FFC6D9;left:10vw;bottom:-35vmax;opacity:.45}
+body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.6;background:radial-gradient(4px 4px at 12% 18%,#C9B6FF,transparent),radial-gradient(3px 3px at 30% 60%,#FFC6D9,transparent),radial-gradient(4px 4px at 55% 12%,#FFE69A,transparent),radial-gradient(3px 3px at 72% 40%,#B9E8D0,transparent),radial-gradient(4px 4px at 88% 75%,#C9B6FF,transparent),radial-gradient(3px 3px at 20% 88%,#FFE69A,transparent),radial-gradient(3px 3px at 46% 80%,#FFC6D9,transparent),radial-gradient(4px 4px at 93% 14%,#B9E8D0,transparent),radial-gradient(3px 3px at 7% 48%,#FFC6D9,transparent)}
+#fx{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:90}
+.bar{position:fixed;left:0;right:0;top:0;height:4px;background:linear-gradient(90deg,var(--mint),var(--lemon),var(--pink),var(--lav));transform:scaleX(0);transform-origin:0 50%;z-index:70}
+.glass{background:var(--glass);border:1px solid var(--line);border-radius:26px;box-shadow:0 10px 30px rgba(118,90,112,.12)}
+.btn{display:inline-block;padding:.8rem 1.8rem;border-radius:999px;border:2px solid var(--plum);background:var(--lemon);font-weight:700;color:var(--plum);text-decoration:none;transition:box-shadow .4s var(--ease),background .4s,transform .2s}
+.btn:hover{background:var(--pink);box-shadow:0 8px 0 rgba(118,90,112,.25)}.btn:active{transform:scale(.96)}.btn[hidden]{display:none}
+
+/* gate: a letter from Mama (airmail envelope) */
+.gate{position:fixed;inset:0;z-index:80;display:grid;place-content:center;justify-items:center;gap:1.1rem;text-align:center;padding:1.5rem;overflow:hidden;background:radial-gradient(circle at 50% 30%,#fff,var(--ppink) 45%,var(--mlav) 100%);transition:opacity 1s var(--ease),visibility 0s 1s}
+.gate.open{opacity:0;visibility:hidden;pointer-events:none}
+.gate>*{position:relative;z-index:1}.gate>.fzs,.gate>.cloud{position:absolute;z-index:0}
+.gate h2{font-size:clamp(2rem,7.5vw,3.4rem)}
+.gate p{max-width:26em;margin:0}
+.env{width:min(84vw,340px);aspect-ratio:3/2;margin-top:.6rem;animation:eb 3s ease-in-out infinite}
+@keyframes eb{50%{translate:0 -8px}}
+.env>*{position:absolute}
+.env .back{inset:0;border:8px solid transparent;border-radius:12px;background:linear-gradient(#fff,#fff) padding-box,repeating-linear-gradient(-45deg,var(--pink) 0 12px,#fff 12px 24px,var(--lav) 24px 36px,#fff 36px 48px) border-box;box-shadow:0 22px 40px -12px rgba(118,90,112,.4)}
+.env .card{z-index:1;left:12%;right:12%;top:12%;bottom:12%;display:grid;place-items:center;border-radius:6px;background:#FFFDF6;border:1px solid var(--line);font:700 1.15rem/1.4 var(--serif);color:var(--plum);transition:transform 1s var(--ease) .45s}
+.env .front{z-index:2;inset:8px;border-radius:6px;background:linear-gradient(#FFF8ED,#fff);clip-path:polygon(0 0,50% 50%,100% 0,100% 100%,0 100%)}
+.env .addr{z-index:2;left:12%;bottom:12%;display:grid;gap:.15rem;text-align:left;line-height:1.25}
+.env .addr b{font:700 1.15rem/1.2 var(--serif);white-space:nowrap}.env .addr small{font-size:.75rem;font-weight:700;white-space:nowrap}
+.env .stamp{z-index:2;right:10%;bottom:12%;width:38px;height:44px;display:grid;place-items:center;font-size:1.4rem;background:var(--lemon);outline:2px dotted var(--plum);outline-offset:-4px}
+.env .flap{z-index:3;top:8px;left:8px;right:8px;height:calc(50% - 8px);transform-origin:50% 0;background:linear-gradient(#FFC6D9,#ffd9e6);clip-path:polygon(0 0,100% 0,50% 100%);transition:transform .7s var(--ease),z-index 0s .35s}
+.seal{z-index:4;left:50%;top:50%;width:58px;height:58px;margin:-29px 0 0 -29px;padding:0;border:0;border-radius:50%;background:radial-gradient(circle at 35% 30%,#ff9fbd,#e56a93);color:#fff;font:400 1.6rem/1 var(--sans);box-shadow:0 6px 0 rgba(118,90,112,.25),inset 0 -4px 0 rgba(0,0,0,.1);animation:sp 2.2s ease-in-out infinite;transition:opacity .3s}
+@keyframes sp{50%{scale:1.1}}
+.seal::after{content:"";position:absolute;inset:-6px;border:2px solid #e56a93;border-radius:50%;pointer-events:none;animation:rg 2s ease-out infinite}
+.gate.opening .env{animation:none}
+.gate.opening .flap{transform:rotateX(180deg);z-index:0}
+.gate.opening .card{transform:translateY(-62%)}
+.gate.opening .seal{opacity:0;animation:none;pointer-events:none}
+.tap{font-weight:700;animation:tp 1.8s ease-in-out infinite}
+@keyframes tp{50%{opacity:.5}}
+@media (max-height:720px){.gate .chap{display:none}.env{width:min(72vw,300px)}.gate{gap:.7rem}.gate h2{font-size:1.9rem}}
+@media (prefers-reduced-motion:reduce){.env,.seal,.seal::after,.tap{animation:none!important}}
+/* sections as storybook scenes */
+section{position:relative;padding:clamp(5rem,13vw,9rem) 1.25rem;max-width:1040px;margin:0 auto;text-align:center}
+section{isolation:isolate}
+section::after{content:"";position:absolute;z-index:-1;top:0;bottom:0;left:50%;width:100vw;translate:-50% 0;pointer-events:none;background:var(--tint);-webkit-mask-image:linear-gradient(transparent,#000 7rem,#000 calc(100% - 7rem),transparent);mask-image:linear-gradient(transparent,#000 7rem,#000 calc(100% - 7rem),transparent)}
+section:nth-of-type(odd){--tint:rgba(255,198,217,.3)}
+section:nth-of-type(even){--tint:rgba(201,182,255,.26)}
+h2{font-size:clamp(2.2rem,6vw,3.8rem);color:var(--plum);margin-bottom:.6rem}
+h2::after{content:"✦ ✦ ✦";display:block;margin-top:.4rem;font:400 .9rem var(--sans);letter-spacing:.5em;color:#E7A3BF}
+.sub{max-width:32em;margin:0 auto 2rem}
+.quote{font:italic 600 clamp(1.4rem,3.8vw,2.1rem)/1.4 var(--serif);max-width:22em;margin:0 auto 1.2rem}
+.rv{opacity:0;transform:translateY(46px);transition:opacity 1.1s var(--ease),transform 1.1s var(--ease);transition-delay:var(--d,0s)}.rv.in{opacity:1;transform:none}
+
+/* hero */
+.hero{max-width:none;min-height:100svh;display:grid;place-items:center;overflow:hidden;padding:5rem 1rem 9rem;background:linear-gradient(var(--mlav),var(--ppink) 60%,var(--bg));box-shadow:none;clip-path:none}
+.big2{position:absolute;font:800 clamp(20rem,85vw,50rem)/1 var(--serif);color:transparent;-webkit-text-stroke:2px rgba(201,182,255,.55);transform:translate(calc(var(--px,0)*-26px),calc(var(--py,0)*-26px));pointer-events:none;user-select:none}
+.hero-in{position:relative;z-index:1}
+.kicker{display:inline-block;padding:.35rem 1.5rem;border:2px solid var(--plum);border-radius:999px;background:var(--lemon);font:italic 700 clamp(1.1rem,3.6vw,1.6rem)/1.3 var(--serif);opacity:0;transform:translateY(20px)}
+.name{font-size:clamp(5.2rem,25vw,14rem);line-height:.95;color:var(--pink);-webkit-text-stroke:2px var(--plum);text-shadow:0 6px 0 var(--lav),0 14px 0 rgba(118,90,112,.2);margin:.1em 0 .15em;display:flex;justify-content:center}
+.name span{display:inline-block;opacity:0;transform:translateY(.6em) rotate(8deg) scale(.7)}
+.bn{font:600 clamp(1.3rem,4.5vw,1.9rem)/1.4 var(--serif);opacity:0;transform:translateY(20px)}
+.go .kicker,.go .bn{animation:up 1s var(--ease) forwards}.go .kicker{animation-delay:.5s}.go .bn{animation-delay:1.5s}
+.go .name span{animation:pop .9s var(--ease) forwards;animation-delay:calc(.7s + var(--i)*.11s)}
+@keyframes up{to{opacity:1;transform:none}}@keyframes pop{to{opacity:1;transform:none}}
+.note{display:inline-block;width:min(88vw,24em);margin:1.8rem 0 .4rem;padding:.9rem 1.4rem;font:600 clamp(1.05rem,3.8vw,1.3rem)/1.6 var(--sans);opacity:0}.go .note{animation:up 1s 2s var(--ease) forwards}
+.note span{display:block;transition:opacity .6s ease,transform .6s ease}.note span.out{opacity:0;transform:translateY(8px)}
+.hero .btn{margin-top:1.5rem;opacity:0}.go .hero .btn{animation:up 1s 2.5s var(--ease) forwards}
+.fzs{position:absolute;inset:0;pointer-events:none}
+.fz{position:absolute;font-size:clamp(1.8rem,6vw,3rem);translate:calc(var(--px,0)*var(--k)*1px) calc(var(--py,0)*var(--k)*1px);animation:fz var(--t) ease-in-out infinite alternate}
+@keyframes fz{to{transform:translateY(-26px) rotate(10deg)}}
+.scene{position:absolute;left:0;right:0;bottom:0;height:24vh;pointer-events:none}
+.hill{position:absolute;bottom:-14vh;height:26vh;border-radius:50%}
+.h1{left:-15%;width:75%;background:var(--mint)}.h2{right:-15%;width:80%;background:#E8DFFF;border-top:6px solid #fff}
+.castle{position:absolute;right:7%;bottom:5vh;width:clamp(90px,22vw,150px);height:auto;filter:drop-shadow(0 8px 0 rgba(118,90,112,.12))}
+.sky{position:absolute;inset:0;pointer-events:none}
+.rainbow{position:absolute;left:50%;top:5%;width:min(92vw,680px);height:auto;translate:-50% 0;opacity:.55;fill:none;stroke-width:16;stroke-linecap:round}
+.cloud{position:absolute;width:110px;height:34px;border-radius:999px;background:#fff;box-shadow:0 8px 18px rgba(118,90,112,.1);animation:cl 9s ease-in-out infinite alternate}
+.cloud::before,.cloud::after{content:"";position:absolute;background:#fff;border-radius:50%}
+.cloud::before{width:46px;height:46px;left:16px;top:-24px}.cloud::after{width:60px;height:60px;left:42px;top:-34px}
+.c1{left:6%;top:16%}.c2{right:6%;top:34%;scale:.8;animation-delay:-3s}.c3{left:12%;top:54%;scale:.6;opacity:.8;animation-delay:-6s}
+@keyframes cl{to{translate:34px 0}}
+.cue{margin:1.6rem 0 0;font-size:.95rem;font-weight:700;opacity:0}
+.go .cue{animation:up 1s 3s var(--ease) forwards,nudge 1.6s 4s ease-in-out infinite}
+@keyframes nudge{50%{translate:0 6px}}
+
+/* kite */
+.map{width:100%;height:auto;overflow:visible;margin-top:1rem}.map text{font:700 20px var(--serif);fill:var(--plum)}.map .s{font:600 14px var(--sans)}
+.map .ht{font-size:22px;fill:#F28DB0}
+.map .em{font:400 34px sans-serif}.map .env{font:400 22px sans-serif}
+.arr{display:inline-block;margin:1.2rem auto 0;padding:.7rem 1.5rem;border-radius:999px;background:var(--lemon);border:2px solid var(--plum);font:700 1.1rem/1.5 var(--sans);opacity:0;transform:translateY(14px) scale(.96);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.arr.on{opacity:1;transform:none}
+.cl{opacity:.9;animation:cld 10s ease-in-out infinite alternate}.cl2{animation-delay:-4s}.cl3{animation-delay:-7s}
+@keyframes cld{to{translate:40px 0}}
+.w1,.w2{animation:wv 7s linear infinite}.w2{animation-duration:10s;animation-direction:reverse}
+@keyframes wv{to{translate:-160px 0}}
+.ring{transform-box:fill-box;transform-origin:center;animation:rg 2.4s ease-out infinite}.r2{animation-delay:-1.2s}
+@keyframes rg{from{opacity:.8;transform:scale(1)}to{opacity:0;transform:scale(2.3)}}
+.ksway{animation:ksw 2.6s ease-in-out infinite alternate}@keyframes ksw{from{transform:rotate(-7deg)}to{transform:rotate(7deg)}}
+.ktail{transform-origin:0 28px;animation:ktl 1.1s ease-in-out infinite alternate}@keyframes ktl{from{transform:rotate(-14deg)}to{transform:rotate(14deg)}}
+.hearts{opacity:0;transition:opacity .8s}.map.arrived .hearts{opacity:1}
+@media (prefers-reduced-motion:reduce){.ksway,.ktail,.cl,.w1,.w2,.ring{animation:none!important}.hearts{display:none}}
+
+/* photos: polaroid frames, never cropped */
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.2rem;max-width:1000px;margin:0 auto;align-items:start}
+.tile{position:relative;padding:10px 10px 34px;border:0;border-radius:6px;background:#fff;box-shadow:0 14px 30px rgba(118,90,112,.22);rotate:-1.5deg;min-height:150px;transition:rotate .4s var(--ease)}
+.tile:nth-of-type(even){rotate:1.8deg}.tile:hover{rotate:0deg}
+.tile::before{content:"";position:absolute;top:-10px;left:50%;width:64px;height:20px;margin-left:-32px;background:rgba(185,232,208,.85);rotate:-3deg}
+.tile img{display:block;width:100%;height:auto;border-radius:3px}
+.tile span{display:grid;place-content:center;min-height:180px;border-radius:3px;background:linear-gradient(145deg,var(--mlav),var(--pink));font:700 2rem var(--serif);color:var(--plum)}.tile small{font:600 .85rem var(--sans)}
+.tile:first-of-type,.tile:last-of-type{grid-column:span 2}
+@media (min-width:800px){.grid{grid-template-columns:repeat(4,1fr)}.tile:first-of-type,.tile:last-of-type{grid-column:span 2}}
+.lb{position:fixed;inset:0;z-index:85;display:grid;place-items:center;background:rgba(60,40,58,.94)}.lb[hidden]{display:none}
+.lb img{max-width:92vw;max-height:80svh;border-radius:12px;object-fit:contain;border:8px solid #fff}
+.lb button{position:absolute;width:48px;height:48px;border-radius:50%;border:0;background:var(--lemon);color:var(--plum);font-size:1.6rem;line-height:1}
+#lbx{top:calc(1rem + env(safe-area-inset-top,0px));right:1rem}#lbp{left:.8rem;top:50%}#lbn{right:.8rem;top:50%}
+
+/* friends */
+.fr{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:1.2rem;max-width:760px;margin:0 auto}
+.fb{position:relative;aspect-ratio:1;padding:0;border-radius:32px;font-size:clamp(3.4rem,14vw,5rem);line-height:1;display:grid;place-items:center;animation:sway 4s ease-in-out infinite;animation-delay:var(--dl);transition:transform .3s var(--ease),translate .3s var(--ease),opacity 1s var(--ease)}
+@media (hover:hover){.fb:hover{translate:0 -5px}}
+@keyframes sway{50%{transform:rotate(3deg) translateY(-6px)}}
+@keyframes boing{30%{transform:scale(1.25,.8)}60%{transform:scale(.9,1.2) translateY(-18px)}}
+.fb .bub{position:absolute;bottom:92%;left:50%;transform:translate(-50%,0);opacity:0;padding:.35rem .9rem;border-radius:16px;font:600 .95rem/1.3 var(--serif);width:max-content;max-width:min(170px,44vw);text-align:center;background:var(--lemon);color:var(--plum);pointer-events:none;z-index:2}
+.fb.hit{animation:wiggle .5s ease}
+@keyframes wiggle{25%{transform:rotate(-6deg)}50%{transform:rotate(6deg)}75%{transform:rotate(-3deg)}}
+.fb .bub{transform:translate(-50%,6px);transition:opacity .25s ease,transform .25s ease}
+.fb.hit .bub{opacity:1;transform:translate(-50%,0)}
+
+/* balloons */
+.bunch{position:relative;height:340px;max-width:420px;margin:0 auto}
+.bl{position:absolute;width:70px;height:88px;margin-left:-35px;border:0;border-radius:50% 50% 48% 48%;background:radial-gradient(circle at 30% 24%,rgba(255,255,255,.9),transparent 22%),var(--c);box-shadow:inset -9px -12px 0 rgba(118,90,112,.14),0 14px 24px rgba(118,90,112,.18);animation:bob var(--t,4s) ease-in-out infinite;transition:transform .35s var(--ease),opacity .35s}
+.bl:hover{transform:scale(1.08)}.bl.pop{transform:scale(1.7);opacity:0;pointer-events:none}
+@keyframes bob{50%{translate:0 -18px}}
+.strings{position:absolute;inset:0;width:100%;height:100%}.strings line{stroke:rgba(118,90,112,.4);stroke-width:1.5;vector-effect:non-scaling-stroke}
+.bear{position:absolute;left:50%;bottom:0;translate:-50% 0;font-size:5.5rem;line-height:1}.bear.hit{animation:boing .6s var(--ease)}
+.say{--wc:#C9B6FF;position:relative;max-width:26em;min-height:8.5rem;margin:1.8rem auto 1rem;padding:2rem 1.6rem 1.6rem;display:grid;gap:.7rem;place-items:center;align-content:center;background:#fff;border:0;border-top:10px solid var(--wc);border-radius:10px 10px 22px 22px;box-shadow:0 16px 36px rgba(118,90,112,.2);rotate:-1deg}
+.say::before{content:"";position:absolute;top:-22px;left:50%;width:70px;height:20px;margin-left:-35px;background:rgba(185,232,208,.9);rotate:3deg}
+.wn{display:inline-block;padding:.15rem 1rem;border-radius:999px;background:var(--wc);font:700 .95rem/1.6 var(--sans);color:var(--plum)}
+.wt{font:600 clamp(1.25rem,4.4vw,1.5rem)/1.75 var(--sans)}
+.say.sw{animation:sayIn .5s var(--ease)}@keyframes sayIn{from{opacity:0;transform:translateY(10px) scale(.96)}}
+.starrow{font-size:1.6rem;letter-spacing:.3em;color:#E7A3BF;margin-bottom:.6rem}
+.bl::after{content:"?";position:absolute;left:0;right:0;top:24%;font:700 1.9rem/1 var(--serif);color:#fff;text-shadow:0 2px 0 rgba(118,90,112,.3);pointer-events:none}
+.bl::before{content:"";position:absolute;inset:-6px;border-radius:inherit;border:2px solid var(--c);pointer-events:none;animation:ring 2s ease-out infinite;animation-delay:inherit}
+@keyframes ring{from{opacity:.9;transform:scale(.92)}to{opacity:0;transform:scale(1.4)}}
+.hint{display:inline-flex;align-items:center;gap:.5rem;margin:0 auto 1rem;padding:.5rem 1.2rem;border-radius:999px;background:var(--lemon);border:2px solid var(--plum);font-weight:700;font-size:1rem;line-height:1.4}
+.hint[hidden]{display:none}
+.hint .fin{display:inline-block;font-size:1.4rem;animation:tapHint 1s ease-in-out infinite}
+@keyframes tapHint{50%{transform:translateY(-6px)}}
+
+/* cake */
+.cake{position:relative;display:grid;justify-items:center;max-width:340px;margin:1rem auto 0;animation:floaty 5s ease-in-out infinite}
+@keyframes floaty{50%{translate:0 -8px}}
+.plate{width:310px;height:16px;margin-top:-6px;border-radius:50%;background:linear-gradient(#fff,var(--mlav));box-shadow:0 12px 22px rgba(118,90,112,.25)}
+.tw{position:absolute;font-size:1.4rem;line-height:1;pointer-events:none;animation:twk 2.4s ease-in-out infinite}
+@keyframes twk{50%{opacity:.25;transform:scale(.7) rotate(20deg)}}
+.candles{display:flex;gap:2.4rem}
+.cd1{background:none;border:0;padding:.4rem .8rem;display:grid;justify-items:center;transition:transform .3s var(--ease)}.cd1:hover{transform:scale(1.12)}
+.fl{width:22px;height:36px;background:radial-gradient(circle at 50% 72%,#fff6c4,#ffc94d 58%,var(--pink));border-radius:50% 50% 50% 50%/72% 72% 28% 28%;box-shadow:0 0 30px 10px rgba(255,201,77,.5);animation:fk .45s ease-in-out infinite alternate;transition:opacity .4s,transform .4s}
+.cd1.off .fl{opacity:0;transform:translateY(8px) scale(.2);animation:none}
+.st{width:12px;height:50px;border-radius:4px;background:repeating-linear-gradient(45deg,var(--mint) 0 8px,#fff 8px 16px)}
+@keyframes fk{to{transform:scale(1.1,.93) rotate(4deg)}}
+.t2{width:170px;height:60px;border-radius:18px 18px 8px 8px;background:linear-gradient(var(--pink) 0 32%,#fff0f5 32% 44%,#ffd9e6 44%)}
+.t1{position:relative;width:260px;height:76px;border-radius:18px 18px 26px 26px;margin-top:-4px;background:linear-gradient(var(--lav) 0 30%,#f3edff 30% 42%,#ddd0ff 42%);box-shadow:0 26px 40px rgba(118,90,112,.25)}
+.t1::before{content:"";position:absolute;left:50%;top:50%;width:44px;height:18px;margin-left:-22px;border-bottom:4px solid var(--plum);border-radius:0 0 40px 40px}
+.t1::after{content:"";position:absolute;left:calc(50% - 32px);top:38%;width:9px;height:9px;border-radius:50%;background:var(--plum);box-shadow:55px 0 var(--plum)}
+.msg{position:relative;max-width:26em;margin:1.8rem auto 1rem;padding:1.6rem;background:#fff;border-top:10px solid var(--lemon);border-radius:10px 10px 22px 22px;box-shadow:0 16px 36px rgba(118,90,112,.2);rotate:-1deg;font:600 clamp(1.25rem,4.4vw,1.5rem)/1.75 var(--sans)}
+.msg:empty{display:none}
+.msg.sw{animation:sayIn .5s var(--ease)}
+
+/* chand mama: night sky scene */
+.night{position:relative;max-width:560px;min-height:380px;margin:1rem auto 0;padding:2.4rem 1rem 2rem;display:grid;justify-items:center;align-content:center;gap:1.4rem;border-radius:32px;overflow:hidden;background:linear-gradient(#765A70,#9d84b8 65%,#C9B6FF);box-shadow:0 20px 50px rgba(118,90,112,.3)}
+.nst{position:absolute;color:var(--lemon);line-height:1;pointer-events:none;animation:twk 2.4s ease-in-out infinite}
+.moon{position:relative;width:150px;height:150px;padding:0;border:0;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff6d0,var(--lemon) 60%,#f3c85a);box-shadow:0 0 0 14px rgba(255,230,154,.25),0 0 calc(70px + var(--gl,0)*22px) rgba(255,230,154,.8);transition:box-shadow 1s;animation:mfloat 5s ease-in-out infinite}
+@keyframes mfloat{50%{translate:0 -10px}}
+.moon .eye{position:absolute;top:52px;width:14px;height:18px;border-radius:50%;background:var(--plum);transition:height .2s,top .2s}
+.moon .eye.l{left:38px}.moon .eye.r{right:38px}
+.moon.wink .eye.r{height:3px;top:62px;border-radius:2px}
+.moon .cheek{position:absolute;top:80px;width:22px;height:14px;border-radius:50%;background:var(--pink);opacity:.85}.moon .cheek.l{left:20px}.moon .cheek.r{right:20px}
+.moon .mouth{position:absolute;left:50%;top:84px;width:34px;height:16px;margin-left:-17px;border-bottom:4px solid var(--plum);border-radius:0 0 40px 40px;transition:height .2s}
+.moon.wink .mouth{height:22px}
+.ncl{opacity:.3;pointer-events:none}
+.moon.sleep{animation-duration:8s}.moon.sleep .eye{height:3px;top:62px;border-radius:2px}.moon.sleep .mouth{height:8px}
+.zzz{position:absolute;top:-14px;right:-18px;font-size:1.8rem;line-height:1;opacity:0}
+.moon.sleep .zzz{opacity:1;animation:zf 2.2s ease-in-out infinite}
+@keyframes zf{50%{translate:6px -10px}}
+.mstars{position:relative;z-index:1;color:var(--lemon);font-size:1.5rem;letter-spacing:.3em}
+#mrst{position:relative;z-index:1}
+.mm{position:relative;z-index:1;max-width:22em;min-height:4.4rem;padding:1rem 1.3rem;display:grid;place-items:center;border-radius:20px;background:var(--bg);color:var(--plum);font:600 1.15rem/1.7 var(--sans)}
+.mm.sw{animation:sayIn .5s var(--ease)}
+.shoot{position:absolute;left:-12%;top:var(--y);width:90px;height:3px;border-radius:3px;background:linear-gradient(90deg,transparent,var(--lemon));rotate:20deg;pointer-events:none;animation:shoot 1s ease-out forwards}
+@keyframes shoot{to{translate:680px 170px;opacity:0}}
+@media (prefers-reduced-motion:reduce){.moon,.nst,.zzz,.ncl{animation:none!important}}
+/* letter */
+.paper{max-width:38em;margin:0 auto;padding:clamp(1.6rem,6vw,3.4rem);text-align:left;font:500 1.15rem/2.05 var(--serif);background:#fff;border:3px dashed var(--lemon);box-shadow:0 18px 50px rgba(118,90,112,.15)}
+.sign{text-align:right;font-size:1.4rem}
+footer{padding:3rem 1rem 5rem;text-align:center;font:600 1.1rem var(--serif)}
+.mus{position:fixed;right:1rem;bottom:calc(1rem + env(safe-area-inset-bottom,0px));z-index:65;width:48px;height:48px;border-radius:50%;font-size:1.3rem}
+.mus[aria-pressed=false]{opacity:.5}
+
+/* birthday overlay */
+.yay{position:fixed;inset:0;z-index:75;display:flex;flex-direction:column;align-items:center;gap:1.2rem;overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;text-align:center;padding:2rem 1.25rem calc(2rem + env(safe-area-inset-bottom,0px));background:rgba(255,240,245,.94);opacity:0;visibility:hidden;transition:opacity .6s var(--ease),visibility 0s .6s}
+.yay>*{flex:none;max-width:100%}.yay>:first-child{margin-top:auto}.yay>:last-child{margin-bottom:auto}
+.yay.show{opacity:1;visibility:visible;transition-delay:0s}
+.yay h2{font-size:clamp(2.6rem,10vw,5.4rem);opacity:0;transform:scale(.6) rotate(-4deg)}
+.yay.show h2{animation:pop 1s .2s var(--ease) forwards}
+.yay p{font:600 clamp(1.2rem,4vw,1.8rem)/1.5 var(--serif);margin:0}
+.row span{display:inline-block;font-size:clamp(2.4rem,10vw,4rem);margin:0 .15em;animation:jump .8s ease-in-out infinite;animation-delay:calc(var(--i)*.12s)}
+@keyframes jump{50%{transform:translateY(-22px) rotate(-8deg)}}
+
+/* premium polish */
+html{scrollbar-color:#C9B6FF var(--bg);scrollbar-width:thin}
+body{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+::selection{background:var(--pink);color:var(--plum)}
+h1,h2,h3,.sub,.quote{text-wrap:balance}p{text-wrap:pretty}
+body::after{content:"";position:fixed;inset:0;z-index:92;pointer-events:none;opacity:.05;mix-blend-mode:multiply;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.chap{margin:0 0 .6rem;font:800 .8rem/1.4 var(--sans);letter-spacing:.3em;text-transform:uppercase;color:rgba(118,90,112,.88)}
+.chap::before,.chap::after{content:"";display:inline-block;width:28px;height:1px;margin:0 .8rem;vertical-align:middle;background:currentColor;opacity:.5}
+h2{letter-spacing:-.01em}
+h2::after{content:"";display:block;width:64px;height:3px;margin:.9rem auto 0;border-radius:3px;background:linear-gradient(90deg,var(--mint),var(--lemon),var(--pink),var(--lav))}
+.glass:not(.say):not(.paper){border:1px solid rgba(255,255,255,.85);box-shadow:0 16px 36px -14px rgba(118,90,112,.3),inset 0 1px 0 #fff}
+.btn{background:linear-gradient(#FFEFB5,var(--lemon));box-shadow:0 6px 0 rgba(118,90,112,.22);letter-spacing:.02em}
+.btn:hover{background:linear-gradient(#FFD9E6,var(--pink));box-shadow:0 8px 0 rgba(118,90,112,.25);translate:0 -2px}
+.btn:active{translate:0 3px;box-shadow:0 2px 0 rgba(118,90,112,.25)}
+.paper{position:relative;padding-bottom:clamp(3rem,8vw,4.4rem)}
+.paper::after{content:"♥";position:absolute;right:1.6rem;bottom:-22px;width:48px;height:48px;display:grid;place-items:center;border-radius:50%;background:radial-gradient(circle at 35% 30%,#ff9fbd,#e56a93);color:#fff;font-size:1.3rem;line-height:1;box-shadow:0 8px 14px rgba(118,90,112,.3),inset 0 -3px 0 rgba(0,0,0,.1)}
+footer{position:relative}
+footer::before{content:"";display:block;width:90px;height:3px;margin:0 auto 1.4rem;border-radius:3px;background:linear-gradient(90deg,var(--mint),var(--lemon),var(--pink),var(--lav))}
+/* premium letter */
+.paper{--lh:2.05;border:0;padding-top:calc(clamp(1.6rem,6vw,3.4rem) + 14px);padding-bottom:clamp(5.6rem,16vw,6.4rem);background:linear-gradient(#FFFEF9,#FFF8ED);box-shadow:0 34px 60px -24px rgba(118,90,112,.4),inset 0 1px 0 #fff;color:var(--plum)}
+.airband{position:absolute;top:0;left:0;right:0;height:14px;border-radius:26px 26px 0 0;background:repeating-linear-gradient(-45deg,var(--pink) 0 12px,#fff 12px 24px,var(--lav) 24px 36px,#fff 36px 48px)}
+.phead{display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;margin-bottom:1.8rem}
+.from{margin:0;font:800 .72rem/1.5 var(--sans);letter-spacing:.16em;text-transform:uppercase}
+.pstamp{position:relative;flex:none;width:40px;height:46px;display:grid;place-items:center;font-size:1.4rem;background:var(--lemon);outline:2px dotted var(--plum);outline-offset:-4px}
+.pstamp::after{content:"";position:absolute;inset:-12px -18px;border:2px solid rgba(118,90,112,.35);border-radius:50%;rotate:-12deg;pointer-events:none}
+.plines{line-height:var(--lh);background:repeating-linear-gradient(to bottom,transparent 0,transparent calc(var(--lh)*1em - 1px),rgba(201,182,255,.5) calc(var(--lh)*1em - 1px),rgba(201,182,255,.5) calc(var(--lh)*1em))}
+.plines p{margin:0 0 calc(var(--lh)*1em)}.plines p:last-child{margin-bottom:0}
+.plines p:first-child{font-weight:700}
+.plines p.rv{opacity:1;transform:none;clip-path:none;transition:none}.plines p.rv.in{clip-path:none}
+.dstamp{position:absolute;left:1.4rem;bottom:1.3rem;display:grid;gap:.1rem;padding:.4rem .9rem;border:3px double #e56a93;border-radius:10px;color:#e56a93;text-align:center;line-height:1.2;mix-blend-mode:multiply;pointer-events:none}
+.dstamp b{font:800 .95rem var(--serif);letter-spacing:.2em}.dstamp span{font:800 .7rem var(--sans);letter-spacing:.06em}
+.dstamp.rv{opacity:0;transform:none;rotate:-10deg;scale:1.9;transition:opacity .15s var(--d,0s),scale .4s cubic-bezier(.3,1.7,.5,1) var(--d,0s)}
+.dstamp.rv.in{opacity:.9;scale:1}
+@media (prefers-reduced-motion:reduce){.plines p.rv{clip-path:none}.dstamp.rv{opacity:.9;scale:1}}
+@media (max-width:600px){.plate{width:280px}.map text{font-size:30px}.map .s{font-size:24px}.map .ht{font-size:30px}.map .em{font-size:52px}.map .env{font-size:30px}.paper{font-size:1.05rem;line-height:1.95;--lh:1.95}.bl{width:64px;height:82px;margin-left:-32px}.t1{width:230px}.t2{width:150px}.fr{gap:.8rem}}
+@media (prefers-reduced-motion:reduce){*{animation-duration:.01s!important;animation-delay:0s!important;transition-duration:.01s!important}html{scroll-behavior:auto}.rv{opacity:1;transform:none}}
+
+.family-section {
+  padding: 90px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.family-video-card {
+  max-width: 760px;
+  margin: 35px auto 55px;
+  padding: 22px;
+  background: rgba(255,255,255,.75);
+  border: 1px solid rgba(255,255,255,.8);
+  border-radius: 24px;
+  box-shadow: 0 12px 35px rgba(120,90,100,.10);
+  text-align: center;
+}
+
+.family-video-card h3 {
+  color: #684b60;
+  margin: 0 0 18px;
+  font-size: 19px;
+}
+
+.family-video {
+  width: 100%;
+}
+
+.family-video-card video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: contain;
+  background: #1b1720;
+  border-radius: 16px;
+}
+
+.mamas-card {
+  max-width: 540px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.mamas-photo-frame {
+  padding: 12px 12px 16px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 12px 35px rgba(100,70,90,.15);
+  transform: rotate(-1deg);
+  transition: transform .3s ease;
+}
+
+.mamas-photo-frame:hover {
+  transform: rotate(0) translateY(-5px);
+}
+
+.mamas-photo-frame img {
+  display: block;
+  width: 100%;
+  max-height: 480px;
+  object-fit: cover;
+  border-radius: 7px;
+}
+
+.mamas-caption {
+  margin: 24px 0 0;
+  color: #76536b;
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.8;
+  text-align: center;
+  white-space: pre-line;
+}
+
+@media (max-width: 600px) {
+  .family-section {
+    padding: 60px 0;
+  }
+
+  .family-video-card {
+    margin: 25px auto 40px;
+    padding: 12px;
+  }
+
+  .family-video-card h3 {
+    font-size: 16px;
+  }
+
+  .mamas-photo-frame img {
+    max-height: 380px;
+  }
+
+  .mamas-caption {
+    font-size: 15px;
+  }
+}
+
+</style>
+
+</head>
+<body class="lock">
+<div class="aur a1"></div><div class="aur a2"></div><div class="aur a3"></div>
+<canvas id="fx" aria-hidden="true"></canvas>
+<div class="bar" id="bar"></div>
+<div class="yay" id="yay" role="dialog" aria-modal="true" aria-label="Happy Birthday Zayan"><h2>Happy Birthday, Zayan!</h2><p>“শুভ জন্মদিন, আমার আদরের জায়ান সোনা! তোমার ছোট্ট পৃথিবীটা হাসি, আনন্দ আর রঙিন স্বপ্নে ভরে উঠুক। মামার সবটুকু ভালোবাসা আর দোয়া সবসময় তোমার জন্য।” ❤️</p><div class="row" aria-hidden="true"><span style="--i:0">🐻</span><span style="--i:1">🐰</span><span style="--i:2">🐥</span><span style="--i:3">🐘</span><span style="--i:4">🐶</span><span style="--i:5">🦆</span></div><button class="btn" id="yayx">Yay! Thank you</button></div>
+
+<div class="gate" id="gate">
+  <div class="fzs" aria-hidden="true"><span class="fz" style="left:8%;top:14%;--t:4s;--k:0">🎈</span><span class="fz" style="left:84%;top:12%;--t:5s;--k:0">⭐</span><span class="fz" style="left:10%;top:74%;--t:4.5s;--k:0">🧸</span><span class="fz" style="left:82%;top:72%;--t:3.8s;--k:0">🐥</span><span class="fz" style="left:46%;top:5%;--t:5.5s;--k:0">🌈</span><span class="fz" style="left:70%;top:88%;--t:4.2s;--k:0">✨</span></div>
+  <i class="cloud" style="left:5%;top:60%;scale:.7" aria-hidden="true"></i><i class="cloud" style="right:4%;top:30%;scale:.6;animation-delay:-4s" aria-hidden="true"></i>
+  <p class="chap">A letter from across the sea</p>
+  <h2>A little world for Zayan</h2>
+  <p>জায়ানের জন্য মামার বানানো ছোট্ট একটা জগৎ। ভেতরে মিউজিক আছে, তাই ভলিউম ঠিক করে নাও।</p>
+  <div class="env">
+    <div class="back"></div>
+    <div class="card" aria-hidden="true"><span>Happy 2nd Birthday,<br>Zayan ♥️</span></div>
+    <div class="front"></div>
+    <div class="addr"><b>To: Zayan, Ireland</b><small>From: Mama, Bangladesh</small></div>
+    <div class="stamp" aria-hidden="true">🪁</div>
+    <div class="flap"></div>
+    <button class="seal" id="seal" aria-label="Open the letter">♥</button>
+  </div>
+  <p class="tap">Tap the heart seal to open · সিলটা ছুঁয়ে চিঠি খোলো</p>
+</div>
+
+<button class="mus glass" id="mus" aria-pressed="true" aria-label="Toggle music">♪</button>
+
+<main>
+<header class="hero" id="top">
+  <div class="sky" aria-hidden="true"><svg class="rainbow" viewBox="0 0 400 200"><path d="M20 200A180 180 0 0 1 380 200" stroke="#FFC6D9"/><path d="M40 200A160 160 0 0 1 360 200" stroke="#FFE69A"/><path d="M60 200A140 140 0 0 1 340 200" stroke="#B9E8D0"/><path d="M80 200A120 120 0 0 1 320 200" stroke="#C9B6FF"/></svg><i class="cloud c1"></i><i class="cloud c2"></i><i class="cloud c3"></i></div>
+  <div class="scene" aria-hidden="true"><i class="hill h1"></i><i class="hill h2"></i><svg class="castle" viewBox="0 -16 140 136" fill="none" stroke="#765A70" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"><rect x="10" y="50" width="28" height="70" fill="#FFC6D9"/><polygon points="6,50 24,20 42,50" fill="#C9B6FF"/><rect x="102" y="50" width="28" height="70" fill="#FFC6D9"/><polygon points="98,50 116,20 134,50" fill="#C9B6FF"/><rect x="40" y="40" width="60" height="80" fill="#FFF0F5"/><polygon points="36,40 70,0 104,40" fill="#C9B6FF"/><line x1="70" y1="0" x2="70" y2="-14"/><polygon points="70,-14 88,-8 70,-2" fill="#FFE69A"/><path d="M60 120V92a10 10 0 0 1 20 0V120" fill="#765A70"/><circle cx="24" cy="76" r="6" fill="#FFE69A"/><circle cx="116" cy="76" r="6" fill="#FFE69A"/><circle cx="70" cy="64" r="7" fill="#FFE69A"/></svg></div>
+  <div class="big2" aria-hidden="true">2</div>
+  <div class="fzs" aria-hidden="true"><span class="fz" style="left:8%;top:22%;--t:4s;--k:30">🎈</span><span class="fz" style="left:84%;top:16%;--t:5s;--k:-24">⭐</span><span class="fz" style="left:11%;top:70%;--t:4.5s;--k:20">🫍</span><span class="fz" style="left:80%;top:66%;--t:3.8s;--k:-34">🐥</span><span class="fz" style="left:46%;top:7%;--t:5.5s;--k:16">🐼</span><span class="fz" style="left:68%;top:86%;--t:4.2s;--k:26">🦄</span><span class="fz" style="left:22%;top:9%;--t:6s;--k:-18">🦖</span><span class="fz" style="left:90%;top:42%;--t:4.8s;--k:22">🎁</span></div>
+  <div class="hero-in">
+    <div class="kicker">✦ Happy 2nd Birthday ✦</div>
+    <h1 class="name" id="name" aria-label="Zayan"></h1>
+    <p class="bn">“শুভ জন্মদিন, ছোট্ট রাজপুত্র জায়ান!” 🎂</p>
+    <div class="note glass" id="note"></div>
+    <a class="btn" id="begin" href="#distance" data-mag>Begin the journey</a>
+    <p class="cue" aria-hidden="true">scroll down ↓</p>
+  </div>
+</header>
+
+<section id="distance">
+  <p class="chap rv">Chapter One</p>
+  <h2 class="rv">Across the Sea</h2>
+  <p class="quote rv" style="--d:.1s">Distance can keep us apart, but it can never make our love feel distant.</p>
+  <p class="sub rv" style="--d:.2s">তুমি থাকো দূর দেশে, আর মামার ভালোবাসা প্রতিদিন উড়ে যায় তোমার ছোট্ট পৃথিবীতে।</p>
+  <svg class="map rv" id="map" viewBox="0 0 800 310" role="img" aria-label="A kite flying on a thread from Bangladesh to Ireland">
+    <defs><linearGradient id="g" x1="1" x2="0"><stop offset="0" stop-color="#7FCFAB"/><stop offset=".5" stop-color="#F3C85A"/><stop offset="1" stop-color="#F28DB0"/></linearGradient></defs>
+    <g aria-hidden="true"><g class="cl cl1"><ellipse cx="220" cy="78" rx="46" ry="14" fill="#fff"/><ellipse cx="200" cy="70" rx="22" ry="14" fill="#fff"/><ellipse cx="240" cy="66" rx="26" ry="17" fill="#fff"/></g>
+    <g class="cl cl2"><ellipse cx="560" cy="52" rx="40" ry="12" fill="#fff"/><ellipse cx="544" cy="45" rx="19" ry="12" fill="#fff"/><ellipse cx="578" cy="42" rx="22" ry="15" fill="#fff"/></g>
+    <g class="cl cl3"><ellipse cx="400" cy="120" rx="32" ry="10" fill="#fff" opacity=".8"/><ellipse cx="388" cy="114" rx="16" ry="10" fill="#fff" opacity=".8"/><ellipse cx="414" cy="112" rx="18" ry="12" fill="#fff" opacity=".8"/></g></g>
+    <g aria-hidden="true"><path class="w1" d="M-40 298q40-16 80 0t80 0t80 0t80 0t80 0t80 0t80 0t80 0t80 0t80 0t80 0t80 0t80 0V330H-40Z" fill="#B9E8D0" opacity=".55"/><path class="w2" d="M-40 306q40-14 80 0t80 0t80 0t80 0t80 0t80 0t80 0t80 0t80 0t80 0t80 0t80 0t80 0V330H-40Z" fill="#C9B6FF" opacity=".5"/></g>
+    <g aria-hidden="true"><ellipse cx="740" cy="238" rx="64" ry="11" fill="#B9E8D0" opacity=".8"/><ellipse cx="60" cy="238" rx="64" ry="11" fill="#B9E8D0" opacity=".8"/><text class="em" x="690" y="226" text-anchor="middle">🌴</text><text class="em" x="108" y="228" text-anchor="middle">☘️</text></g>
+    <path d="M740 220C550 20 250 20 60 220" fill="none" stroke="rgba(118,90,112,.35)" stroke-width="2" stroke-dasharray="3 9"/>
+    <path id="thread" d="M740 220C550 20 250 20 60 220" fill="none" stroke="url(#g)" stroke-width="3.5" stroke-linecap="round"/>
+    <g class="hearts" aria-hidden="true"><text class="ht" text-anchor="middle">♥<animateMotion dur="6s" repeatCount="indefinite" begin="0s"><mpath href="#thread"/></animateMotion></text><text class="ht" text-anchor="middle">♥<animateMotion dur="6s" repeatCount="indefinite" begin="2s"><mpath href="#thread"/></animateMotion></text><text class="ht" text-anchor="middle">♥<animateMotion dur="6s" repeatCount="indefinite" begin="4s"><mpath href="#thread"/></animateMotion></text></g>
+    <circle class="ring" cx="740" cy="220" r="15" fill="none" stroke="#7FCFAB" stroke-width="3"/><circle cx="740" cy="220" r="15" fill="#B9E8D0" stroke="#765A70" stroke-width="3"/><text x="740" y="262" text-anchor="middle">Mama</text><text class="s" x="740" y="284" text-anchor="middle">Bangladesh</text>
+    <circle class="ring r2" cx="60" cy="220" r="15" fill="none" stroke="#F28DB0" stroke-width="3"/><circle cx="60" cy="220" r="15" fill="#FFC6D9" stroke="#765A70" stroke-width="3"/><text x="60" y="262" text-anchor="middle">Zayan</text><text class="s" x="60" y="284" text-anchor="middle">Ireland</text>
+    <g id="kite"><g class="ksway"><g class="ktail"><path d="M0 28q-9 11 0 20t0 20t0 20" fill="none" stroke="#7FCFAB" stroke-width="3" stroke-linecap="round"/><circle cx="-4" cy="40" r="4" fill="#F28DB0"/><circle cx="4" cy="58" r="4" fill="#F3C85A"/><circle cx="-4" cy="74" r="4" fill="#C9B6FF"/><text class="env" x="0" y="98" text-anchor="middle">💌</text></g><polygon points="0,-28 20,0 0,28 -20,0" fill="#FFC6D9"/><polygon points="0,-28 20,0 0,0" fill="#FFE69A"/><polygon points="0,0 20,0 0,28" fill="#C9B6FF"/><path d="M0 -28V28M-20 0H20" stroke="#765A70" stroke-width="1.5"/><polygon points="0,-28 20,0 0,28 -20,0" fill="none" stroke="#765A70" stroke-width="2.5" stroke-linejoin="round"/></g></g>
+  </svg>
+  <p class="arr" id="arr" aria-live="polite">💌 দেখলে তো, দূরে থেকেও মামার আদর ঠিকই তোমাকে খুঁজে নিয়েছে!</p>
+</section>
+
+<section id="photos">
+  <p class="chap rv">Chapter Two</p>
+  <h2 class="rv">Little Zayan</h2>
+  <p class="sub rv" style="--d:.1s">তোমার মিষ্টি মিষ্টি ছবিগুলো মামা যত্ন করে এখানে রেখে দিয়েছে, যখন ইচ্ছে হবে এসে দেখে যেয়ো।</p>
+  <div class="grid" id="grid"></div>
+</section>
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Photo viewer" hidden><img id="lbi" alt="Zayan"><button id="lbp" aria-label="Previous photo">‹</button><button id="lbn" aria-label="Next photo">›</button><button id="lbx" aria-label="Close">×</button></div>
+
+<section id="friends">
+  <p class="chap rv">Chapter Three</p>
+  <h2 class="rv">Say Hi to Friends</h2>
+  <p class="sub rv" style="--d:.1s">চলো, বন্ধুদের সঙ্গে একটু দুষ্টুমি করি! ছুঁয়ে দেখো কী হয়!</p>
+  <div class="fr" id="fr"></div>
+</section>
+
+<section id="balloons">
+  <p class="chap rv">Chapter Four</p>
+  <h2 class="rv">Pop the Balloons</h2>
+  <p class="sub rv" style="--d:.1s">দেখো তো, ভালুকটা তোমার জন্য কত বেলুন নিয়ে এসেছে! ফাটিয়ে দেখো, ভেতরে মামার কী কী মিষ্টি ইচ্ছে লুকিয়ে আছে!</p>
+  <p class="hint" id="hint"><span class="fin" aria-hidden="true">👆</span> Tap a balloon to read a wish · বেলুনে ছুঁয়ে দাও</p>
+  <div class="bunch rv" id="bunch"><svg class="strings" id="strings" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"></svg><div class="bear" id="bear" aria-hidden="true">🧸</div></div>
+  <div class="say glass" id="say" aria-live="polite"></div>
+  <div class="starrow" id="starrow" aria-hidden="true"></div>
+  <button class="btn" id="again" hidden>Blow new balloons</button>
+</section>
+
+<section id="moon">
+  <p class="chap rv">Chapter Five</p>
+  <h2 class="rv">Chand Mama</h2>
+  <p class="sub rv" style="--d:.1s">ওই যে আকাশে চাঁদ মামা! একটু ছুঁয়ে দাও তো, তোমার কানে কানে একটা মিষ্টি কথা বলবে!</p>
+  <p class="hint" id="hint3"><span class="fin" aria-hidden="true">👆</span> Tap the moon · চাঁদ মামাকে ছুঁয়ে দাও</p>
+  <div class="night rv" id="night">
+    <span class="nst" style="left:8%;top:12%;font-size:1.3rem" aria-hidden="true">✦</span><span class="nst" style="left:84%;top:10%;font-size:1.6rem;animation-delay:-.8s" aria-hidden="true">★</span><span class="nst" style="left:20%;top:44%;font-size:1rem;animation-delay:-1.4s" aria-hidden="true">✦</span><span class="nst" style="left:90%;top:48%;font-size:1.2rem;animation-delay:-.4s" aria-hidden="true">✦</span><span class="nst" style="left:12%;top:78%;font-size:1.5rem;animation-delay:-1.9s" aria-hidden="true">★</span><span class="nst" style="left:78%;top:80%;font-size:1.1rem;animation-delay:-1.1s" aria-hidden="true">✦</span><span class="nst" style="left:46%;top:6%;font-size:1rem;animation-delay:-.2s" aria-hidden="true">✦</span>
+    <i class="cloud ncl" style="left:4%;top:60%" aria-hidden="true"></i><i class="cloud ncl" style="right:2%;top:24%;scale:.7;animation-delay:-5s" aria-hidden="true"></i>
+    <button class="moon" id="moonbtn" aria-label="Tap the moon to hear Chand Mama"><span class="eye l"></span><span class="eye r"></span><span class="cheek l"></span><span class="cheek r"></span><span class="mouth"></span><span class="zzz" aria-hidden="true">💤</span></button>
+    <div class="mm" id="mmsg" aria-live="polite"></div>
+    <div class="mstars" id="mstars" aria-hidden="true"></div>
+    <button class="btn" id="mrst" hidden>Say hello again 🌙</button>
+  </div>
+</section>
+
+<!-- CHAPTER SIX: FAMILY WISHES -->
+<section id="family" class="family-section">
+  <div class="wrap">
+    <div class="head rv">
+      <span class="eyebrow">CHAPTER SIX</span>
+      <h2 class="section-title">পরিবারের ভালোবাসা ❤️</h2>
+      <p class="section-desc">
+        জায়ানের জন্য পরিবারের সবার পক্ষ থেকে একটুকরো ভালোবাসা।
+      </p>
+    </div>
+
+    <div class="family-video-card rv">
+      <h3>🎥 সবার পক্ষ থেকে জন্মদিনের শুভেচ্ছা</h3>
+      <video id="familyVideo" controls playsinline preload="metadata">
+        Your browser does not support HTML video.
+      </video>
+    </div>
+
+    <div class="mamas-card rv">
+      <div class="mamas-photo-frame">
+        <img id="mamasPhoto" alt="জায়ানের সব মামা" loading="lazy">
+      </div>
+      <p id="mamasCaption" class="mamas-caption"></p>
+    </div>
+  </div>
+</section>
+
+
+<section id="cake">
+  <p class="chap rv">Chapter Six</p>
+  <h2 class="rv">Make a Wish</h2>
+  <p class="sub rv" style="--d:.1s">দুই বছরের ছোট্ট রাজপুত্রের জন্য দুটো মোমবাতি! ফুঁ দিয়ে নিভিয়ে দাও, আর মনে মনে একটা ইচ্ছে করো!</p>
+  <p class="hint" id="hint2"><span class="fin" aria-hidden="true">👆</span> Tap a candle to blow it out · মোমবাতিতে ছুঁয়ে ফুঁ দাও</p>
+  <div class="cake rv" style="--d:.2s">
+    <div class="candles" id="candles">
+      <button class="cd1" aria-label="Blow out candle 1"><span class="fl"></span><span class="st"></span></button>
+      <button class="cd1" aria-label="Blow out candle 2"><span class="fl"></span><span class="st"></span></button>
+    </div>
+    <div class="t2"></div><div class="t1"></div><div class="plate"></div>
+    <span class="tw" style="left:2%;top:10%" aria-hidden="true">✨</span><span class="tw" style="right:0;top:2%;animation-delay:-.8s" aria-hidden="true">⭐</span><span class="tw" style="left:-4%;top:58%;animation-delay:-1.4s" aria-hidden="true">✨</span><span class="tw" style="right:-3%;top:62%;animation-delay:-.4s" aria-hidden="true">💫</span>
+  </div>
+  <p class="msg" id="msg" aria-live="polite"></p>
+  <button class="btn" id="relight">Light the candles again</button>
+</section>
+
+<section id="letter">
+  <p class="chap rv">The Last Page</p>
+  <h2 class="rv">A Letter from Mama</h2>
+  <article class="paper glass">
+    <i class="airband" aria-hidden="true"></i>
+    <div class="phead rv"><p class="from">From: Mama, Bangladesh</p><div class="pstamp" aria-hidden="true">🪁</div></div>
+    <div class="plines">
+      <p class="rv">প্রিয় জায়ান,</p>
+      <p class="rv" style="--d:.3s">জায়ান সোনা, তোমার দুই বছরের জন্মদিনে মামার ছোট্ট একটা উপহার এই ওয়েবসাইট। জানি, এখন তুমি এর কিছুই বুঝবে না। কিন্তু একদিন যখন বড় হয়ে নিজের ছোটবেলার এই স্মৃতিগুলো দেখবে, তখন যেন মনে থাকে—তোমার একজন মামা ছিল, যে অনেক দূরে থেকেও তোমাকে ভীষণ ভালোবাসত। আর সময় যতই পেরিয়ে যাক, সেই ভালোবাসা কখনো বদলাবে না।</p>
+      <p class="rv" style="--d:.6s">দূরত্ব আমাদের পাশাপাশি থাকতে দেয়নি, কিন্তু ভালোবাসতে তো বাধা দিতে পারেনি। সাগর, আকাশ আর হাজার মাইল পথ পেরিয়েও তুমি সবসময় মামার হৃদয়ের কাছেই থাকবে।</p>
+      <p class="rv" style="--d:.9s">জন্মদিনে তোমার জন্য রইল মামার একরাশ আদর, অফুরন্ত ভালোবাসা আর অনেক দোয়া,আর একগুচ্ছ মিষ্টি চুমু!</p>
+      <p class="sign rv" style="--d:1.2s">ইতি, তোমার মামা</p>
+    </div>
+    <div class="dstamp rv" style="--d:2s" aria-hidden="true"><b>DELIVERED</b><span>বাংলাদেশ থেকে ভালোবাসা পৌঁছেছে · Ireland</span></div>
+  </article>
+</section>
+<footer>Made for Zayan · 13 November 2026 · From Mama, With Love<br><small style="font:400 .75rem var(--sans);opacity:.7">Animal sound effects sourced from the ESC-50 dataset (CC BY-NC 4.0) and zoo sound recordings.</small></footer>
+</main>
+
+<script>
+(function(){
+"use strict";
+var $=function(i){return document.getElementById(i)},RM=matchMedia("(prefers-reduced-motion: reduce)").matches,fine=matchMedia("(pointer:fine)").matches;
+/* Photos: put image data URIs / paths in PHOTOS to publish them with the page */
+var PHOTOS = [
+  "images/13.jpg",
+    "images/1.jpg",
+    "images/2.jpg",
+    "images/3.jpg",
+    "images/4.jpg",
+    "images/5.jpg",
+    "images/10.jpg",
+    "images/6.jpg",
+    "images/7.jpg",
+    "images/8.jpg",
+    "images/9.jpg",
+    
+    "images/11.jpg",
+    "images/12.jpg",
+    "images/10.jpg",
+];
+
+/* title letters */
+"Zayan".split("").forEach(function(c,i){var s=document.createElement("span");s.textContent=c;s.style.setProperty("--i",i);s.setAttribute("aria-hidden","true");$("name").appendChild(s)});
+
+/* canvas: stars + particles */
+var cv=$("fx"),cx=cv.getContext("2d"),W,H,D=Math.min(1.5,devicePixelRatio||1),stars=[],P=[],mx=0,my=0,run=false;
+function fit(){W=innerWidth;H=innerHeight;cv.width=W*D;cv.height=H*D;stars=[];for(var i=0;i<(W<600?60:110);i++)stars.push({x:Math.random()*W,y:Math.random()*H,r:Math.random()*1.4+.3,t:Math.random()*6,z:Math.random()*.9+.1})}
+fit();addEventListener("resize",fit);
+function emit(x,y,n,o){o=o||{};var c=o.c||["#ff8fab","#ffd27a","#5eead4","#a78bfa","#ff9f6b"];for(var i=0;i<n;i++){var a=Math.random()*6.28,s=(o.s||3)+Math.random()*(o.v||6);P.push({x:x,y:y,vx:Math.cos(a)*s,vy:Math.sin(a)*s-(o.up||3),r:o.r||(2.5+Math.random()*3.5),c:c[i%c.length],l:o.l||90,m:o.l||90,g:o.g==null?.16:o.g,w:Math.random()*6})}go()}
+function go(){if(!run){run=true;requestAnimationFrame(loop)}}
+function loop(t){
+  cx.setTransform(D,0,0,D,0,0);cx.clearRect(0,0,W,H);
+  
+  P=P.filter(function(p){return p.l>0});
+  P.forEach(function(p){p.x+=p.vx;p.y+=p.vy;p.vy+=p.g;p.vx*=.985;p.l--;p.w+=.2;cx.globalAlpha=Math.min(1,p.l/p.m*2);cx.fillStyle=p.c;cx.save();cx.translate(p.x,p.y);cx.rotate(p.e?Math.sin(p.w/3)*.4:p.w);if(p.e){cx.font=p.r*6+"px serif";cx.textAlign="center";cx.fillText(p.e,0,0)}else cx.fillRect(-p.r,-p.r/2,p.r*2,p.r);cx.restore()});
+  if(P.length&&!document.hidden)requestAnimationFrame(loop);else{run=false;cx.setTransform(1,0,0,1,0,0);cx.clearRect(0,0,cv.width,cv.height)}
+}
+go();document.addEventListener("visibilitychange",go);
+function burst(x,y,n){if(!RM)emit(x,y,n)}
+
+/* pointer: parallax + sparkle trail + tap sparkle */
+var lt=0;
+addEventListener("pointermove",function(e){mx=e.clientX/W-.5;my=e.clientY/H-.5;if(scrollY<H){var hs=$("top").style;hs.setProperty("--px",mx);hs.setProperty("--py",my)}
+  if(fine&&!RM&&e.timeStamp-lt>40){lt=e.timeStamp;emit(e.clientX,e.clientY,1,{c:["#ffd27a","#5eead4"],s:.3,v:.8,up:0,r:2,l:36,g:.02})}},{passive:true});
+addEventListener("pointerdown",function(e){if(e.target.closest("button,a"))return;burst(e.clientX,e.clientY,14)});
+
+/* audio: twinkle music box + pop */
+var ac,on=true,idx=0,mel=[0,0,7,7,9,9,7,5,5,4,4,2,2,0,7,7,5,5,4,4,2,7,7,5,5,4,4,2,0,0,7,7,9,9,7,5,5,4,4,2,2,0],tm;
+function ctx(){try{ac=ac||new (window.AudioContext||window.webkitAudioContext)();if(ac.state==="suspended")ac.resume()}catch(e){}return ac}
+function note(f,d,v){var a=ctx();if(!a)return;var o=a.createOscillator(),g=a.createGain();o.type="triangle";o.frequency.value=f;g.gain.setValueAtTime(v,a.currentTime);g.gain.exponentialRampToValueAtTime(.0001,a.currentTime+d);o.connect(g);g.connect(a.destination);o.start();o.stop(a.currentTime+d)}
+function tune(){if(!on)return;var n=mel[idx++%mel.length];note(523.25*Math.pow(2,n/12),1.3,.05);tm=setTimeout(tune,idx%14===0?1100:520)}
+function pop(){var a=ctx();if(!a||!on)return;var b=a.createBuffer(1,2200,a.sampleRate),d=b.getChannelData(0);for(var i=0;i<d.length;i++)d[i]=(Math.random()*2-1)*Math.pow(1-i/d.length,3)*.6;var s=a.createBufferSource();s.buffer=b;s.connect(a.destination);s.start()}
+$("mus").onclick=function(){on=!on;this.setAttribute("aria-pressed",on);clearTimeout(tm);if(on)tune()};
+
+/* gate */
+$("seal").onclick=function(){var g=$("gate");if(g.classList.contains("opening"))return;g.classList.add("opening");ctx();tune();burst(W/2,H/2,50);
+  setTimeout(function(){g.classList.add("open");document.body.classList.remove("lock");document.body.classList.add("go");burst(W/2,H/2,120)},RM?150:1400)};
+
+/* love notes: soft rotating messages from Mama */
+var NT=["মামা তোমাকে অনেক ভালোবাসে ❤️","সাগর পেরিয়ে অনেক আদর পাঠালাম 🧸","তোমার হাসিটাই মামার সবচেয়ে প্রিয় 🌻","দুই বছরের সোনা, সুন্দর স্বপ্ন নিয়ে বড় হও 🦋"],ni=0,nb=$("note");
+nb.innerHTML="<span></span>";var ns=nb.firstChild;ns.textContent=NT[0];
+setInterval(function(){ns.classList.add("out");setTimeout(function(){ni=(ni+1)%NT.length;ns.textContent=NT[ni];ns.classList.remove("out")},600)},3600);
+
+/* scroll reveal + progress */
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}})},{threshold:0,rootMargin:"0px 0px 50px 0px"});
+document.querySelectorAll(".rv").forEach(function(el){io.observe(el)});
+
+/* magnetic button */
+var mg=document.querySelector("[data-mag]");
+if(fine&&!RM){mg.addEventListener("pointermove",function(e){var r=mg.getBoundingClientRect();mg.style.transform="translate("+(e.clientX-r.left-r.width/2)*.3+"px,"+(e.clientY-r.top-r.height/2)*.4+"px)"});mg.addEventListener("pointerleave",function(){mg.style.transform=""})}
+
+function raf1(f){var q=0;return function(){if(!q){q=1;requestAnimationFrame(function(){q=0;f()})}}}
+/* kite + progress */
+var th=$("thread"),kite=$("kite"),map=$("map"),L=th.getTotalLength(),lastP=-1;th.style.strokeDasharray=L;
+function onScroll(){
+  var h=document.documentElement;$("bar").style.transform="scaleX("+Math.min(1,scrollY/(h.scrollHeight-innerHeight||1))+")";
+  var r=map.getBoundingClientRect();if(r.bottom<-100||r.top>innerHeight+100)return;var p=RM?1:Math.max(0,Math.min(1,(innerHeight*.92-r.top)/(innerHeight*.55+r.height*.6)));
+  th.style.strokeDashoffset=L*(1-p);var q=L*p,q0=Math.min(q,L-2),a=th.getPointAtLength(q),c=th.getPointAtLength(q0),b=th.getPointAtLength(q0+2);
+  kite.setAttribute("transform","translate("+a.x+","+a.y+") rotate("+(Math.atan2(b.y-c.y,b.x-c.x)*180/Math.PI+90)+")");
+  var was=map.classList.contains("arrived"),now=p>.97;map.classList.toggle("arrived",now);$("arr").classList.toggle("on",now);
+  if(now&&!was&&!RM){var pj=map.createSVGPoint();pj.x=60;pj.y=220;var sj=pj.matrixTransform(map.getScreenCTM());emit(sj.x,sj.y,40,{c:["#FFC6D9","#FFE69A","#B9E8D0","#C9B6FF"],up:4})}
+  if(!RM&&p>0&&p<1&&Math.abs(p-lastP)>.004){lastP=p;var pt=map.createSVGPoint();pt.x=a.x;pt.y=a.y;var sp=pt.matrixTransform(map.getScreenCTM());emit(sp.x,sp.y,2,{c:["#FFC6D9","#FFE69A","#B9E8D0","#C9B6FF"],s:.4,v:1,up:0,r:2.5,l:40,g:.04})}
+}
+addEventListener("scroll",raf1(onScroll),{passive:true});addEventListener("resize",onScroll);onScroll();
+
+/* photo grid + viewer (10 slots) */
+function save(k,v){try{localStorage.setItem(k,v)}catch(e){}}function read(k){try{return localStorage.getItem(k)||""}catch(e){return ""}}
+function shrink(f,cb){var fr=new FileReader();fr.onload=function(){var im=new Image();im.onload=function(){var s=Math.min(1,1200/Math.max(im.width,im.height)),c=document.createElement("canvas");c.width=im.width*s;c.height=im.height*s;c.getContext("2d").drawImage(im,0,0,c.width,c.height);cb(c.toDataURL("image/jpeg",.84))};im.src=fr.result};fr.readAsDataURL(f)}
+var srcs=[],cur=0,lb=$("lb"),lbi=$("lbi"),grid=$("grid");
+function have(){return srcs.map(function(x,k){return x?k:-1}).filter(function(k){return k>=0})}
+function openLB(i){cur=i;lbi.src=srcs[i];lb.hidden=false;document.body.classList.add("lock");$("lbx").focus()}
+function step(d){var h=have(),p=h.indexOf(cur);cur=h[(p+d+h.length)%h.length];lbi.src=srcs[cur]}
+$("lbx").onclick=function(){lb.hidden=true;document.body.classList.remove("lock")};
+$("lbp").onclick=function(){step(-1)};$("lbn").onclick=function(){step(1)};
+lb.addEventListener("click",function(e){if(e.target===lb)$("lbx").click()});
+addEventListener("keydown",function(e){if(lb.hidden)return;if(e.key==="Escape")$("lbx").click();if(e.key==="ArrowLeft")step(-1);if(e.key==="ArrowRight")step(1)});
+var tx=0;lb.addEventListener("touchstart",function(e){tx=e.touches[0].clientX},{passive:true});
+lb.addEventListener("touchend",function(e){var d=e.changedTouches[0].clientX-tx;if(Math.abs(d)>50)step(d<0?1:-1)},{passive:true});
+PHOTOS.forEach(function(p,i){
+  var b=document.createElement("button");b.type="button";b.className="tile rv";b.style.setProperty("--d",(i%2)*.08+"s");
+  var inp=document.createElement("input");inp.type="file";inp.accept="image/*";inp.hidden=true;
+  function show(u){srcs[i]=u;b.innerHTML="";var m=new Image();m.src=u;m.alt="Zayan, photo "+(i+1);m.loading="lazy";m.decoding="async";b.appendChild(m);b.setAttribute("aria-label","Open photo "+(i+1))}
+  var u=p||read("jp"+i);
+  if(u)show(u);else{b.innerHTML="<span>"+(i+1)+"<small>Add photo</small></span>";b.setAttribute("aria-label","Add photo "+(i+1))}
+  b.onclick=function(){if(srcs[i])openLB(i);else inp.click()};
+  inp.onchange=function(){if(inp.files[0])shrink(inp.files[0],function(d){show(d);save("jp"+i,d)})};
+  grid.append(b,inp);io.observe(b);
+});
+
+/* scroll surprises: aurora shifts per section, emoji rain, speed sparkles */
+var TH={top:["#a78bfa","#5eead4","#ff8fab"],distance:["#38bdf8","#5eead4","#a78bfa"],photos:["#ff8fab","#a78bfa","#ffd27a"],friends:["#5eead4","#ffd27a","#ff8fab"],balloons:["#ff8fab","#ffd27a","#a78bfa"],cake:["#ffd27a","#ff8fab","#fb7185"],letter:["#ffd27a","#ff9f6b","#a78bfa"],moon:["#a78bfa","#C9B6FF","#ffd27a"]};
+var so=new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting)return;var id=e.target.id,t=TH[id];if(t)[].forEach.call(document.querySelectorAll(".aur"),function(a,k){a.style.setProperty("--c",t[k])});})},{rootMargin:"-45% 0px -45% 0px"});
+["top","distance","photos","friends","balloons","moon","cake","letter"].forEach(function(id){var el=$(id);if(el)so.observe(el)});
+
+/* balloons: the bear holds a bunch; popping one makes him read a wish */
+var WS=["সবসময় আনন্দে থেকো, আমার ছোট্ট সোনা 🧸","তোমার জীবন ভরে উঠুক রঙিন স্বপ্নে 🎨","ভালো মানুষ হয়ে বড় হও 🌟","শরীর-মন দুটোই ভালো রেখো 🍀","মামার আদর আর ভালোবাসা সবসময় তোমার জন্য 💌"],
+CL=["#ff8fab","#ffd27a","#5eead4","#a78bfa","#ff9f6b"],XS=[12,31,50,69,88],TS=[60,16,0,30,78],left=0,bunch=$("bunch"),strs=$("strings"),say=$("say");
+var BD=["১","২","৩","৪","৫"];
+function sayIt(t,l,c){say.style.setProperty("--wc",c||"#C9B6FF");say.innerHTML='<span class="wn"></span><span class="wt"></span>';say.firstChild.textContent=l||"";say.lastChild.textContent=t;say.classList.remove("sw");void say.offsetWidth;say.classList.add("sw")}
+function starRow(){$("starrow").textContent="★".repeat(WS.length-left)+"☆".repeat(left)}
+function blow(){
+  [].slice.call(bunch.querySelectorAll(".bl")).forEach(function(x){x.remove()});strs.innerHTML="";left=WS.length;starRow();sayIt("একটা বেলুন বেছে নিয়ে ছুঁয়ে দেখো, তোমার জন্য মামার কী ইচ্ছে জমা আছে! 💌","👆 শুরু করো","#FFC6D9");$("again").hidden=true;$("hint").hidden=false;
+  WS.forEach(function(t,i){
+    var b=document.createElement("button");b.type="button";b.className="bl";b.setAttribute("aria-label","Balloon "+(i+1)+": pop to hear a wish");
+    b.style.cssText="--c:"+CL[i]+";left:"+XS[i]+"%;top:"+TS[i]+"px;--t:"+(3.4+i*.5)+"s;animation-delay:-"+i+"s";
+    var ln=document.createElementNS("http://www.w3.org/2000/svg","line");ln.setAttribute("x1",XS[i]);ln.setAttribute("y1",(TS[i]+88)/340*100);ln.setAttribute("x2",50);ln.setAttribute("y2",76);strs.appendChild(ln);
+    b.onclick=function(){var r=b.getBoundingClientRect(),bear=$("bear");pop();$("hint").hidden=true;emit(r.left+35,r.top+44,40,{c:[CL[i],"#ffd27a"]});b.classList.add("pop");b.disabled=true;ln.remove();left--;starRow();
+      bear.classList.remove("hit");void bear.offsetWidth;bear.classList.add("hit");sq(300+i*60);
+      if(left)sayIt(t,"ইচ্ছে "+BD[WS.length-left-1]+" / "+BD[WS.length-1],CL[i]);else{sayIt("সবগুলো ইচ্ছে এখন তোমার! মামা তোমাকে অনেক অনেক ভালোবাসে। ♥️","♥️ সব ইচ্ছে তোমার","#FFE69A");$("again").hidden=false;burst(innerWidth/2,innerHeight/2,120)}};
+    bunch.appendChild(b)})
+}
+blow();$("again").onclick=blow;
+
+/* friends */
+var FR=[["🐻","হেই! আমি ভালুক মামা, ভয় পেয়ো না! হিহি! 🐾"],["🐷","হ্যালো ছোট্ট বন্ধু! আমার সঙ্গে খেলবে? ঘোঁৎ ঘোঁৎ! 🐾"],["🐥","চিঁ চিঁ! তোমার জন্মদিনে আমার মিষ্টি গান! 🎶!"],["🐘","পোঁ পোঁ! চলো, একসঙ্গে মজা করি! 🎉"],["🐶","ঘেউ ঘেউ! তোমার সঙ্গে বন্ধুত্ব করতে এসেছি! 🦴"],["🦆","প্যাঁক প্যাঁক! হ্যালো জায়ান, আমি তোমার হাঁসছানা বন্ধু!"],["🐱","ম্যাঁও ম্যাঁও! তোমার কোলে একটু বসি? 💕"],["🐮","জায়ান সোনা! আমার সঙ্গে একটু খেলবে? 🐄"],["🐸","ঘ্যাঙর ঘ্যাঙ! দেখো জায়ান, কত উঁচুতে লাফ দিলাম!"],["🦁","হালুম! আমি বনের রাজা, জায়ান আমার বন্ধু!"],["🐵","এই যে জায়ান! আমার কলাটা কি তোমার কাছে লুকিয়ে রেখেছো? 🤭"],["🐑","আমি ছোট্ট তুলতুলে ভেড়া, তোমার বন্ধু হতে এসেছি! 💕"]];
+function sq(f){var a=ctx();if(!a||!on)return;var o=a.createOscillator(),g=a.createGain(),t=a.currentTime;o.type="sine";o.frequency.setValueAtTime(f,t);o.frequency.exponentialRampToValueAtTime(f*1.8,t+.14);g.gain.setValueAtTime(.09,t);g.gain.exponentialRampToValueAtTime(.0001,t+.25);o.connect(g);g.connect(a.destination);o.start();o.stop(t+.26)}
+/* real animal recordings (embedded mp3): bear, pig, chick, elephant, dog, duck, cat, cow, frog, lion, monkey, sheep */
+var SFX=[],AU=SFX.map(function(u){var x=new Audio(u);x.preload="auto";return x});
+function animal(i){if(!on)return;AU.forEach(function(x){x.pause()});var x=AU[i];if(!x)return;x.currentTime=0;var r=x.play();if(r&&r.catch)r.catch(function(){})}
+FR.forEach(function(f,i){var b=document.createElement("button");b.type="button";b.className="fb glass rv";b.style.setProperty("--dl",-i*.7+"s");b.style.setProperty("--d",i*.08+"s");b.setAttribute("aria-label",f[1]);b.innerHTML=f[0]+'<span class="bub" aria-hidden="true">'+f[1]+"</span>";
+  b.onclick=function(){b.classList.remove("hit");void b.offsetWidth;b.classList.add("hit");animal(i);clearTimeout(b.h);b.h=setTimeout(function(){b.classList.remove("hit")},1500)};
+  $("fr").appendChild(b);io.observe(b)});
+
+/* birthday song + cheer */
+function hb(){clearTimeout(tm);var n=[-5,-5,-3,-5,0,-1,-5,-5,-3,-5,2,0,-5,-5,7,4,0,-1,-3,5,5,4,0,2,0],b=[.75,.25,1,1,1,2,.75,.25,1,1,1,2,.75,.25,1,1,1,1,2,.75,.25,1,1,1,2],t=0,i;
+  for(i=0;i<n.length;i++){(function(f,at,d){setTimeout(function(){if(on)note(523.25*Math.pow(2,f/12),d*.55,.08)},at*440)})(n[i],t,b[i]);t+=b[i]}
+  setTimeout(function(){if(on)tune()},t*440+800)}
+function puff(){var a=ctx();if(!a||!on)return;var n=7000,b=a.createBuffer(1,n,a.sampleRate),d=b.getChannelData(0),s=a.createBufferSource(),f=a.createBiquadFilter();for(var i=0;i<n;i++)d[i]=(Math.random()*2-1)*Math.sin(Math.PI*i/n)*.25;f.type="lowpass";f.frequency.value=1400;s.buffer=b;s.connect(f);f.connect(a.destination);s.start()}
+function cheer(){$("yay").scrollTop=0;$("yay").classList.add("show");$("yayx").focus();hb();burst(W/2,H/2,200)}
+$("yayx").onclick=function(){$("yay").classList.remove("show")};
+
+/* candles */
+var cs=[].slice.call(document.querySelectorAll(".cd1"));
+cs.forEach(function(c){c.onclick=function(){if(c.classList.contains("off"))return;c.classList.add("off");$("hint2").hidden=true;puff();var r=c.getBoundingClientRect();emit(r.left+r.width/2,r.top+6,10,{c:["#b7b0d6"],s:.3,v:.7,up:1.8,r:3,l:55,g:-.012});if(cs.every(function(x){return x.classList.contains("off")})){$("msg").textContent="শুভ জন্মদিন, ছোট্ট জায়ান! 🎂 মোমবাতির আলো নিভে গেছে, কিন্তু তোমার জন্য মামার ভালোবাসা কখনো নিভবে না। এবার মনে মনে একটা ইচ্ছে করো। মামার ইচ্ছে, তোমার প্রতিটি দিন কাটুক হাসি, আনন্দ আর সুস্থতায়। 🌟";var m=$("msg");m.classList.remove("sw");void m.offsetWidth;m.classList.add("sw");cheer()}}});
+$("relight").onclick=function(){cs.forEach(function(c){c.classList.remove("off")});$("msg").textContent="";$("hint2").hidden=false};
+/* chand mama: tap the moon */
+var MM=["হ্যালো জায়ান! আমি চাঁদ মামা। প্রতিরাতে আকাশে এসে তোমাকে একবার দেখে যাই!🌕","জানো, তোমার মামাও আমাকে দেখে! আমাকে দেখলেই তার ছোট্ট জায়ানের কথা মনে পড়ে। ❤️","মাঝখানে অনেক দূরত্ব, কিন্তু চাঁদ তো একই! তাই চাঁদের আলোয় তোমরা দুজন সবসময় কাছাকাছি। ✨","এবার ঘুমের দেশে চলে যাও, সোনা। চাঁদ মামা তোমার পাহারায় থাকবে, তুমি মিষ্টি মিষ্টি স্বপ্ন দেখো। 🌕"],mi=0,mmsg=$("mmsg"),moon=$("moonbtn"),night=$("night");
+function moonSay(t){mmsg.textContent=t;mmsg.classList.remove("sw");void mmsg.offsetWidth;mmsg.classList.add("sw")}
+function ms(){$("mstars").textContent="★".repeat(mi)+"☆".repeat(MM.length-mi)}
+moonSay("চাঁদ মামাকে ছুঁয়ে দাও 🌙");ms();
+$("mrst").onclick=function(){mi=0;moon.classList.remove("sleep");moon.style.setProperty("--gl",0);ms();moonSay("চাঁদ মামাকে ছুঁয়ে দাও 🌙");this.hidden=true;$("hint3").hidden=false};
+moon.onclick=function(){
+  if(mi>=MM.length)return;
+  $("hint3").hidden=true;moonSay(MM[mi]);mi++;ms();moon.style.setProperty("--gl",mi);
+  if(mi===MM.length)setTimeout(function(){moon.classList.add("sleep");$("mrst").hidden=false},900);
+  moon.classList.add("wink");setTimeout(function(){moon.classList.remove("wink")},700);
+  if(on){note(784,.9,.06);setTimeout(function(){note(988,.9,.05)},160)}
+  if(!RM){var r=moon.getBoundingClientRect();emit(r.left+r.width/2,r.top+r.height/2,14,{c:["#FFE69A","#FFC6D9","#C9B6FF"],s:2,v:3,up:1,l:60,g:.05});
+    var sh=document.createElement("span");sh.className="shoot";sh.style.setProperty("--y",(8+Math.random()*30)+"%");night.appendChild(sh);setTimeout(function(){sh.remove()},1100)}
+};
+
+})();
+
+/* FAMILY WISHES CONFIGURATION */
+
+const FAMILY_WISH_CONFIG = {
+  video: "videos/family-wish.mp4",
+  image: "images/mama.jpg",
+  caption: "জায়ানের সব মামার পক্ষ থেকে অনেক অনেক ভালোবাসা। ❤️"
+};
+
+/* FAMILY WISHES SETUP */
+
+(function setupFamilyWishes() {
+  const video = document.getElementById("familyVideo");
+  const photo = document.getElementById("mamasPhoto");
+  const caption = document.getElementById("mamasCaption");
+
+  if (!video || !photo || !caption) return;
+
+  video.src = FAMILY_WISH_CONFIG.video;
+  photo.src = FAMILY_WISH_CONFIG.image;
+  caption.textContent = FAMILY_WISH_CONFIG.caption;
+})();
+
+</script>
+</body>
+</html>
